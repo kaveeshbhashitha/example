@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Link Display</title>
+</head>
+<body>
+  
+<div id="linkContainer">
+  <a id="linkDisplay" href="#" target="_blank">Sample Link</a>
+</div>
+
+<button id="changeLinkBtn">Change Link</button>
+
+<script>
+// Array of sample links
+const links = [
+  "https://www.example.com/link1",
+  "https://www.example.com/link2",
+  "https://www.example.com/link3",
+  "https://www.example.com/link4",
+  "https://www.example.com/link5"
+];
+
+// Initialize link index
+let currentLinkIndex = 0;
+
+// Function to update the displayed link
+function updateLink() {
+  document.getElementById('linkDisplay').href = links[currentLinkIndex];
+}
+
+// Event listener for button click
+document.getElementById('changeLinkBtn').addEventListener('click', function() {
+  // Increment link index and loop back to beginning if reached end
+  currentLinkIndex = (currentLinkIndex + 1) % links.length;
+  updateLink(); // Update the displayed link
+});
+
+// Initial update of the link
+updateLink();
+
+</script>
+
+</body>
+</html>
